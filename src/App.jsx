@@ -8,16 +8,18 @@ import Login from "./pages/Login";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { useEffect } from "react";
 import { fetchData } from "./apiConfig";
-import Clients from "./pages/Clients";
+import Clients from "./pages/Clients/Clients";
+import AddClient from "./pages/Clients/Add";
+import ModifyClient from "./pages/Clients/Modify";
 
 function App() {
   const [token, setToken] = useLocalStorage("token", null);
 
   useEffect(() => {
     async function verifyToken() {
-      if(token){
+      if (token) {
         var verify = await fetchData("verify", "GET", {}, token);
-        if(verify.status == 'error'){
+        if (verify.status == "error") {
           setToken(null);
         }
       }
@@ -40,6 +42,18 @@ function App() {
               exact
               path="/clients"
               element={<Layout element={<Clients />} label={"Clients"} />}
+            ></Route>
+
+            <Route
+              exact
+              path="/clients/add"
+              element={<Layout element={<AddClient />} label={"Add Client"} />}
+            ></Route>
+
+            <Route
+              exact
+              path="/clients/edit/:id"
+              element={<Layout element={<ModifyClient />} label={"Modify Client"} />}
             ></Route>
           </Routes>
         </Router>

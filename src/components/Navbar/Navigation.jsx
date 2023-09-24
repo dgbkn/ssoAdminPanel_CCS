@@ -4,7 +4,7 @@ import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { Link } from "react-router-dom";
 
 import { Flex, HStack, Stack, Text, useColorModeValue } from "@chakra-ui/react";
-import { FiBarChart2, FiHome, FiLogOut } from "react-icons/fi";
+import { FiBarChart2, FiHome, FiLogOut, FiUser } from "react-icons/fi";
 import { useLocalStorage } from "@uidotdev/usehooks";
 
 export function Navigation() {
@@ -41,6 +41,16 @@ export function Navigation() {
                   aria-current="page"
                 />
               </Link>
+
+              
+              <Link to="/users">
+                <NavButton
+                  label="Users"
+                  icon={FiUser}
+                  aria-current="page"
+                />
+              </Link>
+
             </Stack>
 
             <Stack>
