@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.logoImage{
+    max-height: 5rem;
+    margin-right: auto;
+}
