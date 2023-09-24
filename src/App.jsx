@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { useEffect } from "react";
 import { fetchData } from "./apiConfig";
+import Clients from "./pages/Clients";
 
 function App() {
   const [token, setToken] = useLocalStorage("token", null);
@@ -37,8 +38,8 @@ function App() {
             ></Route>
             <Route
               exact
-              path="/about"
-              element={<Layout element={<div> About </div>} label={"About"} />}
+              path="/clients"
+              element={<Layout element={<Clients />} label={"Clients"} />}
             ></Route>
           </Routes>
         </Router>

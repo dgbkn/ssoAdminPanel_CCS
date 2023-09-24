@@ -34,9 +34,9 @@ export function Navigation() {
                 <NavButton label="Home" icon={FiHome} />
               </Link>
 
-              <Link to="/about">
+              <Link to="/clients">
                 <NavButton
-                  label="About"
+                  label="Clients"
                   icon={FiBarChart2}
                   aria-current="page"
                 />

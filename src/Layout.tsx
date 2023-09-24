@@ -12,7 +12,7 @@ export default function Layout(props) {
     <main className="flex-1">
         <div className="">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            {"label" in props && <h1 className="text-4xl font-semibold  pb-10">{props.label} {":}"} </h1>}
+            {"label" in props && <h1 className="text-4xl font-semibold  pb-10">{props.label}&nbsp; </h1>}
           </div>
           <div className="mx-auto max-w-7xl">
             {/* Replace with your content */}
