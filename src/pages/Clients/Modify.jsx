@@ -90,7 +90,7 @@ export default function ModifyClient() {
         if (callbacks[k] == "") continue;
         await insertCallBack(data._id, callbacks[k]);
       }
-      toast.success("Modify Success");
+      toast.success(data.message);
       navigate("/clients");
     } else {
       toast.error(data.message);
