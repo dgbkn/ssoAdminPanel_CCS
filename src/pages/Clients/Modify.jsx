@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchData } from "../../apiConfig";
 import { useLocalStorage } from "@uidotdev/usehooks";
-import { Input, Button, Spinner } from "@chakra-ui/react";
+import { Input, Button, Spinner, Text } from "@chakra-ui/react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FormControl, FormLabel } from "@chakra-ui/react";
 import toast from "react-hot-toast";
@@ -102,6 +102,9 @@ export default function ModifyClient() {
     <center>
       {oldData && (
         <form onSubmit={(e) => handleSubmit(e)} style={{ width: "40%" }}>
+        <Text>
+            <b>Client ID : </b> {oldData.client._id}
+        </Text>
           <FormControl isRequired>
             <FormLabel>Name</FormLabel>
             <Input

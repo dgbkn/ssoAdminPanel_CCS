@@ -72,6 +72,16 @@ export default function Clients() {
                         </Text>
                       </Box>
 
+                      <Box>
+                        <Heading size="xs" textTransform="uppercase">
+                          Client id
+                        </Heading>
+                        <Text pt="1" fontSize="sm">
+                          {client._id}
+                        </Text>
+                      </Box>
+                      
+
                       <VStack alignSelf={"end"}>
                         <Link to={`/clients/edit/${client._id}`}>
                         <Button colorScheme="teal" variant="outline">
