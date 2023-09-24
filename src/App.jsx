@@ -11,6 +11,7 @@ import { fetchData } from "./apiConfig";
 import Clients from "./pages/Clients/Clients";
 import AddClient from "./pages/Clients/Add";
 import ModifyClient from "./pages/Clients/Modify";
+import Users from "./pages/Users/Users";
 
 function App() {
   const [token, setToken] = useLocalStorage("token", null);
@@ -53,7 +54,15 @@ function App() {
             <Route
               exact
               path="/clients/edit/:id"
-              element={<Layout element={<ModifyClient />} label={"Modify Client"} />}
+              element={
+                <Layout element={<ModifyClient />} label={"Modify Client"} />
+              }
+            ></Route>
+
+            <Route
+              exact
+              path="/users"
+              element={<Layout element={<Users />} label={"Users"} />}
             ></Route>
           </Routes>
         </Router>
