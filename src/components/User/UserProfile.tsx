@@ -4,10 +4,13 @@ import {
   Container,
   Text,
   Image,
-  VStack,
+  HStack,
   Badge,
   Heading,
+  Button,
+  VStack,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 interface Role {
   clientId: string;
@@ -21,6 +24,7 @@ interface Client {
 }
 
 interface User {
+  _id: string;
   name: string;
   email: string;
   googleId: string;
@@ -57,26 +61,31 @@ const UserProfile: React.FC<UserProfileProps> = ({ user, clients }) => {
         <Text mt={2} color="gray.500">
           Google ID: {user.googleId}
         </Text>
-        <VStack mt={4} spacing={2}>
+        <VStack mt={4} spacing={2} alignItems={'flex-start'}>
           {Object.keys(rolesByClientId).map((clientId) => (
             <Box key={clientId}>
               {clients.map((client) => {
                 if (client._id === clientId) {
                   return (
                     <div key={client._id}>
-                      <Text>Client Name: {client.ClientName}</Text>
+                      <Text>{client.ClientName} : <Badge colorScheme="blue">
+                        {rolesByClientId[clientId].join(",")}
+                      </Badge></Text>
                     </div>
                   );
                 }
                 return null;
               })}
 
-              <Badge colorScheme="blue">
-                {rolesByClientId[clientId].join(", ")}
-              </Badge>
             </Box>
           ))}
         </VStack>
+        <br/>
+        <Link to={`/users/roles/${user._id}`}>
+          <Button colorScheme="green" variant="outline">
+            Edit Roles
+          </Button>
+        </Link>
       </Box>
     </Container>
   );

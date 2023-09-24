@@ -12,6 +12,8 @@ import Clients from "./pages/Clients/Clients";
 import AddClient from "./pages/Clients/Add";
 import ModifyClient from "./pages/Clients/Modify";
 import Users from "./pages/Users/Users";
+import UserRoles from "./pages/Users/Roles";
+import EditRoles from "./pages/Users/EditRoles";
 
 function App() {
   const [token, setToken] = useLocalStorage("token", null);
@@ -63,6 +65,18 @@ function App() {
               exact
               path="/users"
               element={<Layout element={<Users />} label={"Users"} />}
+            ></Route>
+
+            <Route
+              exact
+              path="/users/roles/:id"
+              element={<Layout element={<UserRoles />} label={"Select App"} />}
+            ></Route>
+
+            <Route
+              exact
+              path="/users/:user/roles/:client"
+              element={<Layout element={<EditRoles />} label={"Change Roles"} />}
             ></Route>
           </Routes>
         </Router>
